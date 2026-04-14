@@ -12,7 +12,33 @@ st.set_page_config(page_title="🏠 House Price AI", layout="wide")  # наст�
 
 st.title("🏠 AI House Price Predictor")  # заголовок приложения
 st.markdown("### Smart real estate valuation powered by Machine Learning")  # подзаголовок
+st.markdown("""
+<style>
+/* Общий фон */
+.main {
+    background-color: #0e1117;
+}
 
+/* Заголовок */
+h1 {
+    color: #00FFD1;
+    text-align: center;
+}
+
+/* Метрики */
+[data-testid="stMetric"] {
+    background-color: #1c1f26;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0,255,209,0.2);
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background-color: #111827;
+}
+</style>
+""", unsafe_allow_html=True)
 # ---------------------------
 # LOAD DATA
 # ---------------------------
