@@ -70,7 +70,7 @@ col1, col2, col3,col4 = st.columns(4)  # создание 3 колонок
 col1.metric("💰 Predicted Price", f"${price:,.0f}")  # отображение предсказанной цены
 col2.metric("📊 Dataset Avg", f"${y.mean()*100000:,.0f}")  # средняя цена по датасету
 col3.metric("📈 Difference", f"${price - y.mean()*100000:,.0f}")  # разница
-col4.metric("🤖 Uncertainty", f"{confidence:.4f}")
+col4.metric("🤖 Uncertainty", f"{confidence*100000:.4f}")
 st.divider()  # разделительная линия
 
 # ---------------------------
