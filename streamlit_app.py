@@ -4,6 +4,7 @@ import numpy as np  # импорт numpy для численных операц�
 import matplotlib.pyplot as plt  # импорт matplotlib для построения графиков
 from sklearn.datasets import fetch_california_housing  # загрузка датасета недвижимости Калифорнии
 from sklearn.ensemble import RandomForestRegressor  # модель случайного леса для регрессии
+import shap
 
 # ---------------------------
 # PAGE CONFIG
@@ -80,6 +81,11 @@ with tab1:
     st.subheader("Your House Parameters")  # заголовок
     st.dataframe(df)  # отображение введённых данных
 
+explainer = shap.TreeExplainer(model)
+shap_values = explainer(df)
+
+st.subheader("🧠 Why this price?")
+shap.plots.waterfall(shap_values[0])
 # ---------------------------
 # TAB 2 ANALYTICS
 # ---------------------------
@@ -118,6 +124,10 @@ with tab3:
         "Latitude": "lat",  # переименование широты
         "Longitude": "lon"  # переименование долготы
     }))
+    st.map(
+    map_data.rename(columns={"Latitude": "lat", "Longitude": "lon"}),
+    size=5
+)
 
 # ---------------------------
 # TAB 4 MODEL INFO
